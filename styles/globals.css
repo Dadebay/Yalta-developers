@@ -1,0 +1,473 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "./markdown.css";
+
+* {
+  font-family: "Gilroy", "Inter", "Hind", sans-serif;
+  cursor: none !important;
+}
+
+body {
+  @apply text-white;
+  background: #0a0a0a;
+  cursor: none !important;
+}
+
+a, button, .link, [role="button"] {
+  cursor: none !important;
+}
+
+body.dark {
+  background: #0a0a0a;
+}
+
+.container {
+  background: transparent;
+  padding: 0;
+}
+
+.gradient-circle {
+  position: absolute;
+  pointer-events: none;
+  z-index: 100;
+  top: -30px;
+  height: 60px;
+  width: 100vw;
+  opacity: 0.6;
+  filter: blur(50px);
+  background: radial-gradient(
+    circle,
+    rgba(102, 126, 234, 1) 0%,
+    rgba(118, 75, 162, 0.8) 100%
+  );
+}
+
+.gradient-circle-bottom {
+  position: absolute;
+  pointer-events: none;
+  z-index: 100;
+  bottom: -20px;
+  height: 40px;
+  width: 100vw;
+  opacity: 0.6;
+  filter: blur(50px);
+  background: radial-gradient(
+    circle,
+    rgba(118, 75, 162, 1) 0%,
+    rgba(102, 126, 234, 0.8) 100%
+  );
+}
+
+.gradient-shadow:hover::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(-45deg, #667eea 0%, #764ba2 100%);
+  transform: translate3d(0px, 20px, 0) scale(0.95);
+  filter: blur(20px);
+  opacity: 0.7;
+  transition: opacity 0.3s;
+  border-radius: inherit;
+}
+
+.gradient-shadow:hover::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: inherit;
+  border-radius: inherit;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse-animation {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Carousel Custom Styles */
+.project-carousel .carousel .slide {
+  background: transparent;
+}
+
+.project-carousel .carousel .control-dots {
+  bottom: 15px;
+}
+
+.project-carousel .carousel .control-dots .dot {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: none;
+  width: 8px;
+  height: 8px;
+  margin: 0 4px;
+}
+
+.project-carousel .carousel .control-dots .dot.selected {
+  background: #a855f7;
+  width: 24px;
+  border-radius: 4px;
+}
+
+.project-carousel .carousel.carousel-slider .control-arrow {
+  background: rgba(0, 0, 0, 0.5);
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.project-carousel:hover .carousel.carousel-slider .control-arrow {
+  opacity: 1;
+}
+
+.project-carousel .carousel.carousel-slider .control-arrow:hover {
+  background: rgba(168, 85, 247, 0.8);
+}
+
+/* Scrolling Projects Animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.scrolling-projects {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.scrolling-projects::before,
+.scrolling-projects::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.scrolling-projects::before {
+  left: 0;
+  background: linear-gradient(to right, #0a0a0a 0%, rgba(10, 10, 10, 0.8) 50%, transparent 100%);
+}
+
+.scrolling-projects::after {
+  right: 0;
+  background: linear-gradient(to left, #0a0a0a 0%, rgba(10, 10, 10, 0.8) 50%, transparent 100%);
+}
+
+.scrolling-projects-content {
+  display: flex;
+  animation: scroll-left 40s linear infinite;
+  will-change: transform;
+}
+
+.scrolling-projects-content:hover {
+  animation-play-state: paused;
+}
+
+.scrolling-project-item {
+  padding: 0 30px;
+  opacity: 0.4;
+  transition: all 0.4s ease;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #888;
+  flex-shrink: 0;
+  white-space: nowrap;
+  cursor: pointer;
+  font-family: 'Gilroy', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.scrolling-project-item:hover {
+  opacity: 1;
+  color: #ffffff;
+  font-weight: 800;
+  transform: scale(1.15);
+  text-shadow: 0 0 30px rgba(168, 85, 247, 0.8), 0 0 60px rgba(168, 85, 247, 0.4);
+  letter-spacing: 0.05em;
+}
+
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+}
+
+/* Modern Navbar Styles */
+@supports (backdrop-filter: blur(20px)) {
+  nav {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+}
+
+/* Better font rendering for navbar */
+nav button {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Custom Cursor Enhancement - Circle Shape */
+.custom-cursor {
+  mix-blend-mode: difference !important;
+  border: 2px solid currentColor !important;
+  border-radius: 50% !important;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5) !important;
+  pointer-events: none !important;
+  z-index: 99999 !important;
+}
+
+/* Slow spin animation for icons */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+/* Parallax Image Effect - More Prominent */
+.parallax-image-container {
+  position: relative;
+  overflow: hidden;
+  height: 400px;
+  perspective: 1000px;
+}
+
+.parallax-image-wrapper {
+  height: 120%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center center;
+}
+
+.parallax-image-container:hover .parallax-image-wrapper {
+  transform: translateY(-30px) scale(1.15) rotateX(2deg);
+}
+
+.parallax-image-container img {
+  will-change: transform;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.parallax-image-container:hover img {
+  transform: scale(1.2);
+}
+
+/* Smooth scroll behavior for parallax */
+@media (prefers-reduced-motion: no-preference) {
+  .parallax-image-wrapper {
+    will-change: transform;
+  }
+}
+
+/* Navbar hover glow effect */
+nav::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #a855f7, #ec4899, #8b5cf6, #a855f7);
+  background-size: 400% 400%;
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  animation: gradient-rotate 3s ease infinite;
+}
+
+nav:hover::before {
+  opacity: 0.3;
+}
+
+@keyframes gradient-rotate {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Circular logo container */
+.circular-logo-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4rem 0;
+}
+
+.circular-logo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  position: relative;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.circular-logo svg {
+  width: 80%;
+  height: 80%;
+  filter: brightness(0) invert(1);
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+.circular-logo img[src*=".svg"] {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.1);
+  }
+  20% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.1);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+/* 3D Perspective for Testimonials */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}

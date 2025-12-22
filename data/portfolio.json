@@ -1,0 +1,270 @@
+{
+    "name": "Software Development Team",
+    "headerTaglineOne": "Hello 👋",
+    "headerTaglineTwo": "We Build Amazing Digital Products",
+    "headerTaglineThree": "Web • Mobile • AI Solutions",
+    "headerTaglineFour": "Let's Create Something WOW! 🚀",
+    "showCursor": true,
+    "showBlog": true,
+    "darkMode": true,
+    "showResume": true,
+    "socials": [
+        {
+            "id": "1",
+            "title": "Github",
+            "link": "https://github.com/yourcompany"
+        },
+        {
+            "id": "2",
+            "title": "LinkedIn",
+            "link": "https://www.linkedin.com/company/yourcompany"
+        },
+        {
+            "id": "3",
+            "title": "Twitter",
+            "link": "https://twitter.com/yourcompany"
+        },
+        {
+            "id": "4",
+            "title": "Email",
+            "link": "mailto:info@yourcompany.com"
+        }
+    ],
+    "projects": [
+        {
+            "id": "1",
+            "title": "E-Commerce Platform",
+            "description": "Full-stack e-commerce solution with modern UI, real-time inventory management, and secure payment processing",
+            "imageSrc": "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",
+            "images": [
+                "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",
+                "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+                "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
+                "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&q=80"
+            ],
+            "tags": ["React", "Node.js", "MongoDB", "Stripe", "Redux"],
+            "webUrl": "https://yourproject1.com",
+            "iosUrl": "https://apps.apple.com/app/yourapp",
+            "androidUrl": "https://play.google.com/store/apps/details?id=com.yourapp"
+        },
+        {
+            "id": "2",
+            "title": "Food Delivery App",
+            "description": "Real-time food ordering & delivery platform with live tracking and smart recommendations",
+            "imageSrc": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80",
+            "images": [
+                "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80",
+                "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80",
+                "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80",
+                "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80",
+                "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=800&q=80"
+            ],
+            "tags": ["Flutter", "Firebase", "Maps API", "Real-time DB", "Push Notifications"],
+            "webUrl": "https://yourproject2.com",
+            "iosUrl": "https://apps.apple.com/app/yourapp2",
+            "androidUrl": "https://play.google.com/store/apps/details?id=com.yourapp2"
+        },
+        {
+            "id": "3",
+            "title": "Healthcare Management",
+            "description": "Digital health records, appointment scheduling, and telemedicine platform for modern healthcare",
+            "imageSrc": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
+            "images": [
+                "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
+                "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&q=80",
+                "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=800&q=80"
+            ],
+            "tags": ["Next.js", "PostgreSQL", "AWS", "WebRTC", "HIPAA Compliant"],
+            "webUrl": "https://yourproject3.com",
+            "androidUrl": "https://play.google.com/store/apps/details?id=com.yourapp3"
+        },
+        {
+            "id": "4",
+            "title": "Social Media Platform",
+            "description": "Connect, share, and engage with community. Real-time messaging and content sharing platform",
+            "imageSrc": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
+            "images": [
+                "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
+                "https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=800&q=80",
+                "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c0e9?w=800&q=80",
+                "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80"
+            ],
+            "tags": ["React Native", "GraphQL", "Redis", "Socket.io", "Microservices"],
+            "webUrl": "https://yourproject4.com",
+            "iosUrl": "https://apps.apple.com/app/yourapp4",
+            "androidUrl": "https://play.google.com/store/apps/details?id=com.yourapp4"
+        },
+        {
+            "id": "5",
+            "title": "AI Analytics Dashboard",
+            "description": "ML-powered business intelligence platform with predictive analytics and automated reporting",
+            "imageSrc": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+            "images": [
+                "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+                "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+                "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80"
+            ],
+            "tags": ["Python", "TensorFlow", "React", "D3.js", "Pandas"],
+            "webUrl": "https://yourproject5.com"
+        },
+        {
+            "id": "6",
+            "title": "Smart Home IoT",
+            "description": "Control your home with smart automation. Voice control, energy monitoring, and security features",
+            "imageSrc": "https://images.unsplash.com/photo-1558002038-1055907df827?w=800&q=80",
+            "images": [
+                "https://images.unsplash.com/photo-1558002038-1055907df827?w=800&q=80",
+                "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
+                "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+                "https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?w=800&q=80"
+            ],
+            "tags": ["IoT", "Kotlin", "MQTT", "Alexa Integration", "Google Home"],
+            "webUrl": "https://yourproject6.com",
+            "iosUrl": "https://apps.apple.com/app/yourapp6",
+            "androidUrl": "https://play.google.com/store/apps/details?id=com.yourapp6"
+        }
+    ],
+    "team": [
+        {
+            "id": "1",
+            "name": "Alex Johnson",
+            "role": "CEO & Founder",
+            "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+            "description": "Visionary leader with 10+ years in tech industry",
+            "socials": [
+                {"title": "LinkedIn", "link": "https://linkedin.com"},
+                {"title": "Twitter", "link": "https://twitter.com"}
+            ]
+        },
+        {
+            "id": "2",
+            "name": "Sarah Chen",
+            "role": "Lead Developer",
+            "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
+            "description": "Full-stack expert specializing in scalable solutions",
+            "socials": [
+                {"title": "GitHub", "link": "https://github.com"},
+                {"title": "LinkedIn", "link": "https://linkedin.com"}
+            ]
+        },
+        {
+            "id": "3",
+            "name": "Michael Brown",
+            "role": "UI/UX Designer",
+            "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80",
+            "description": "Creating beautiful and intuitive user experiences",
+            "socials": [
+                {"title": "Dribbble", "link": "https://dribbble.com"},
+                {"title": "Behance", "link": "https://behance.net"}
+            ]
+        },
+        {
+            "id": "4",
+            "name": "Emma Davis",
+            "role": "Mobile Developer",
+            "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
+            "description": "iOS & Android expert with passion for clean code",
+            "socials": [
+                {"title": "GitHub", "link": "https://github.com"},
+                {"title": "LinkedIn", "link": "https://linkedin.com"}
+            ]
+        },
+        {
+            "id": "5",
+            "name": "David Lee",
+            "role": "DevOps Engineer",
+            "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
+            "description": "Building robust infrastructure and automation",
+            "socials": [
+                {"title": "GitHub", "link": "https://github.com"},
+                {"title": "LinkedIn", "link": "https://linkedin.com"}
+            ]
+        },
+        {
+            "id": "6",
+            "name": "Lisa Wang",
+            "role": "Product Manager",
+            "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80",
+            "description": "Driving product strategy and user-centric solutions",
+            "socials": [
+                {"title": "LinkedIn", "link": "https://linkedin.com"},
+                {"title": "Twitter", "link": "https://twitter.com"}
+            ]
+        }
+    ],
+    "services": [
+        {
+            "id": "1",
+            "title": "Web Development 🌐",
+            "description": "Building modern, responsive websites with cutting-edge technologies. We create fast, scalable web applications that drive business growth."
+        },
+        {
+            "id": "2",
+            "title": "Mobile Development 📱",
+            "description": "Native and cross-platform mobile apps for iOS and Android. Beautiful, performant apps that users love."
+        },
+        {
+            "id": "3",
+            "title": "AI & Machine Learning 🤖",
+            "description": "Intelligent solutions powered by AI and ML. From predictive analytics to natural language processing."
+        },
+        {
+            "id": "4",
+            "title": "UI/UX Design 🎨",
+            "description": "User-centered design that delights. Creating intuitive interfaces and exceptional user experiences."
+        },
+        {
+            "id": "5",
+            "title": "Cloud & DevOps ☁️",
+            "description": "Scalable cloud infrastructure and automated deployment pipelines. AWS, Azure, Google Cloud expertise."
+        },
+        {
+            "id": "6",
+            "title": "E-Commerce Solutions 🛒",
+            "description": "Complete e-commerce platforms with payment integration, inventory management, and analytics."
+        }
+    ],
+    "aboutpara": "We are a passionate team of developers, designers, and innovators based in Ashgabat, Turkmenistan. With years of experience in building world-class digital products, we transform ideas into reality. Our mission is to create software that not only works flawlessly but also provides exceptional user experiences. Let's build something amazing together! 🚀",
+    "resume": {
+        "tagline": "👋  We are a team of developers who are passionate about building software that is both functional and aesthetically pleasing.",
+        "description": "We are a team of developers who are passionate about building software that is both functional and aesthetically pleasing. We are based in Ashgabat, Turkmenistan and we are always looking for new projects to work on.",
+        "experiences": [
+            {
+                "id": "1",
+                "dates": "March 2022 - Present",
+                "type": "Full Time",
+                "position": "Frontend Engineer at X",
+                "bullets": "Bullet One, Bullet Two"
+            },
+            {
+                "id": "d495c23b-4f65-479a-9b8a-cfbc1c089725",
+                "dates": "July 2020 - March 2022",
+                "type": "Full Time",
+                "position": "Frontend Engineer at X",
+                "bullets": "Worked on the frontend of a React application, Worked on the frontend of a React application"
+            }
+        ],
+        "education": {
+            "universityName": "University X",
+            "universityDate": "2016-2020",
+            "universityPara": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
+        },
+        "languages": [
+            "Javascript",
+            "HTML5",
+            "CSS",
+            "Python",
+            "Go"
+        ],
+        "frameworks": [
+            "React",
+            "Typescript",
+            "NodeJs"
+        ],
+        "others": [
+            "Figma",
+            "AdobeXD",
+            "AWS"
+        ]
+    }
+}
