@@ -99,40 +99,21 @@ const Resume = () => {
                 </div>
               </div>
 
-              {/* Experience Section */}
+              {/* Achievements Section */}
               <div className="mb-12">
-                <h3 className="text-3xl font-bold mb-6 text-white">Experience</h3>
-                <div className="space-y-6">
-                  {resume.experiences.map(
-                    ({ id, dates, type, position, bullets }) => (
-                      <div key={id} className="bg-gray-800/30 p-6 rounded-xl border border-gray-700 hover:border-purple-500 transition-all duration-300">
-                        <div className="flex justify-between items-start mb-3">
-                          <h4 className="text-xl font-semibold text-white">{position}</h4>
-                          <span className="text-sm text-gray-400">{dates}</span>
-                        </div>
-                        <span className="inline-block bg-green-500/20 text-green-300 px-3 py-1 rounded-full text-xs mb-3">
-                          {type}
-                        </span>
-                        <p className="text-gray-300 leading-relaxed">{bullets}</p>
+                <h3 className="text-3xl font-bold mb-6 text-white">Why Choose Us</h3>
+                <div className="grid grid-cols-1 tablet:grid-cols-2 gap-6">
+                  {resume.achievements.map(
+                    ({ id, title, description }) => (
+                      <div key={id} className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
+                        <h4 className="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+                          <span className="text-2xl">🏆</span>
+                          {title}
+                        </h4>
+                        <p className="text-gray-300 leading-relaxed">{description}</p>
                       </div>
                     )
                   )}
-                </div>
-              </div>
-
-              {/* Education Section */}
-              <div className="mb-12">
-                <h3 className="text-3xl font-bold mb-6 text-white">Education</h3>
-                <div className="bg-gray-800/30 p-6 rounded-xl border border-gray-700">
-                  <h4 className="text-xl font-semibold text-white mb-2">
-                    {resume.education.universityName}
-                  </h4>
-                  <p className="text-gray-400 mb-3">
-                    {resume.education.universityDate}
-                  </p>
-                  <p className="text-gray-300 leading-relaxed">
-                    {resume.education.universityPara}
-                  </p>
                 </div>
               </div>
 
@@ -140,7 +121,7 @@ const Resume = () => {
               <div className="text-center pt-8 border-t border-gray-700">
                 <h3 className="text-2xl font-bold text-white mb-4">Ready to Work Together?</h3>
                 <button
-                  onClick={() => window.open("mailto:info@yaltadevelopers.com")}
+                  onClick={() => window.open("mailto:dadebaygurbanow333@gmail.com")}
                   className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold px-8 py-3 rounded-lg hover:from-purple-600 hover:to-pink-600 transform hover:scale-105 transition-all duration-300"
                 >
                   Get In Touch

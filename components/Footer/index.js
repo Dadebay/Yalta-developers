@@ -23,12 +23,26 @@ const Footer = ({}) => {
           </div>
         </div>
       </div>
-      <h1 className="flex text-sm text-bold mt-2 laptop:mt-10 p-2 laptop:p-0">
-        <span>Made With ❤ by{" "}</span>
-        <span href="http://www.chetanverma.com" className="pl-1">
-          <a className="underline underline-offset-1">Software Development Team</a>
-        </span>
-      </h1>
+      <div className="mt-10 laptop:mt-20 border-t border-gray-800 pt-8 pb-8">
+        <div className="flex flex-col laptop:flex-row items-center justify-between gap-4 p-2 laptop:p-0">
+          <div className="flex items-center gap-2 text-sm text-gray-400">
+            <span>© {new Date().getFullYear()} Yalta Developers. All rights reserved.</span>
+          </div>
+          <div className="flex items-center gap-2 text-sm">
+            <span className="text-gray-400">Made with</span>
+            <span className="text-red-500 animate-pulse text-lg">❤️</span>
+            <span className="text-gray-400">by</span>
+            <a 
+              href="https://github.com/Dadebay" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="font-semibold bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent hover:from-purple-500 hover:via-pink-500 hover:to-blue-500 transition-all duration-300"
+            >
+              Yalta Development Team
+            </a>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

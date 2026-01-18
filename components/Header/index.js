@@ -77,20 +77,15 @@ const Header = ({ handleWorkScroll, handleAboutScroll, handleTeamScroll, isBlog 
                       Resume
                     </Button>
                   )}
-                  <Button onClick={() => router.push("/#right-fit")}>
-                    The Right Fit
+                  <Button onClick={() => router.push("/projects")}>
+                    Projects
                   </Button>
-                  <Button onClick={() => router.push("/#playbook")}>
-                    Playbook
-                  </Button>
+                  <Button onClick={handleTeamScroll}>Team</Button>
                   <Button
                     onClick={() => window.open("mailto:hello@chetanverma.com")}
                   >
                     Contact
                   </Button>
-                  <Button onClick={handleWorkScroll}>Work - Projects</Button>
-                  <Button onClick={handleTeamScroll}>Work - Team</Button>
-                  <Button onClick={handleAboutScroll}>Work - About</Button>
                 </div>
               ) : (
                 <div className="grid grid-cols-1">
@@ -158,7 +153,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, handleTeamScroll, isBlog 
             )}
             
             <button
-              onClick={handleWorkScroll}
+              onClick={() => router.push("/projects")}
               className={`relative px-7 py-3 rounded-full text-[15px] font-semibold tracking-wide transition-all duration-300 overflow-hidden group ${
                 data.showCursor && "cursor-none"
               }`}
@@ -167,6 +162,19 @@ const Header = ({ handleWorkScroll, handleAboutScroll, handleTeamScroll, isBlog 
               <span className="absolute inset-0 bg-white rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></span>
               <span className="relative z-10 text-gray-300 group-hover:text-black transition-colors duration-300 antialiased">
                 Projects
+              </span>
+            </button>
+            
+            <button
+              onClick={handleWorkScroll}
+              className={`relative px-7 py-3 rounded-full text-[15px] font-semibold tracking-wide transition-all duration-300 overflow-hidden group ${
+                data.showCursor && "cursor-none"
+              }`}
+              style={{ fontFamily: "'Gilroy-SemiBold', sans-serif" }}
+            >
+              <span className="absolute inset-0 bg-white rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+              <span className="relative z-10 text-gray-300 group-hover:text-black transition-colors duration-300 antialiased">
+                Team
               </span>
             </button>
             

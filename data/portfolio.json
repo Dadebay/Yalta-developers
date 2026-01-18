@@ -1,5 +1,5 @@
 {
-    "name": "Software Development Team",
+    "name": "Yalta Developers",
     "headerTaglineOne": "Hello 👋",
     "headerTaglineTwo": "We Build Amazing Digital Products",
     "headerTaglineThree": "Web • Mobile • AI Solutions",
@@ -12,40 +12,40 @@
         {
             "id": "1",
             "title": "Github",
-            "link": "https://github.com/yourcompany"
+            "link": "https://github.com/Dadebay"
         },
         {
             "id": "2",
             "title": "LinkedIn",
-            "link": "https://www.linkedin.com/company/yourcompany"
+            "link": "https://www.linkedin.com/in/gurbanovv/"
         },
         {
             "id": "3",
             "title": "Twitter",
-            "link": "https://twitter.com/yourcompany"
+            "link": "https://x.com/Gurbanov_"
         },
         {
             "id": "4",
             "title": "Email",
-            "link": "mailto:info@yourcompany.com"
+            "link": "mailto:dadebaygurbanow333@gmail.com"
         }
     ],
     "projects": [
         {
             "id": "1",
-            "title": "E-Commerce Platform",
+            "title": "Aýterek",
             "description": "Full-stack e-commerce solution with modern UI, real-time inventory management, and secure payment processing",
-            "imageSrc": "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",
+            "imageSrc": "https://play-lh.googleusercontent.com/0vv3b4ni_61zOoUH_Lw1ETHJbN6bjZY4TZRFK0Ly0yQsoIxr_K3acMna_w-nbkxXVA=w7680-h4320-rw",
             "images": [
-                "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",
-                "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
-                "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
-                "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&q=80"
+                "https://play-lh.googleusercontent.com/k8IKlOSQgD1MoXWRBoguyxAiCyXdxmVIRzGvgw06gmFvc6jNHFBx61J0iBiESJ5kfg=w5120-h2880-rw",
+                "https://play-lh.googleusercontent.com/dcwetUzizj-7O8MyJi-pKlw_hMO-_OZyvWpMO65rba5sskY3UPjiLLs3zEbqT80qrAw=w5120-h2880-rw",
+                "https://play-lh.googleusercontent.com/y6miiq5FxO5ZgEDoWTsPwrjLlY2gtrCcyH0H92j8RNOJOSvRsvST5J4pnn-zFTlr-VY=w5120-h2880-rw",
+                "https://play-lh.googleusercontent.com/y6miiq5FxO5ZgEDoWTsPwrjLlY2gtrCcyH0H92j8RNOJOSvRsvST5J4pnn-zFTlr-VY=w5120-h2880-rw"
             ],
-            "tags": ["React", "Node.js", "MongoDB", "Stripe", "Redux"],
+            "tags": ["React", "Node.js", "PostgreSQL", "Online Payment", "Flutter","Firebase"],
             "webUrl": "https://yourproject1.com",
-            "iosUrl": "https://apps.apple.com/app/yourapp",
-            "androidUrl": "https://play.google.com/store/apps/details?id=com.yourapp"
+            "iosUrl": "https://apps.apple.com/tm/app/ayterek/id6444409833",
+            "androidUrl": "https://play.google.com/store/apps/details?id=tm.com.ayterek"
         },
         {
             "id": "2",
@@ -228,27 +228,28 @@
     "resume": {
         "tagline": "👋  We are a team of developers who are passionate about building software that is both functional and aesthetically pleasing.",
         "description": "We are a team of developers who are passionate about building software that is both functional and aesthetically pleasing. We are based in Ashgabat, Turkmenistan and we are always looking for new projects to work on.",
-        "experiences": [
+        "achievements": [
             {
                 "id": "1",
-                "dates": "March 2022 - Present",
-                "type": "Full Time",
-                "position": "Frontend Engineer at X",
-                "bullets": "Bullet One, Bullet Two"
+                "title": "50+ Projects Delivered",
+                "description": "Successfully completed and delivered over 50 projects across web, mobile, and backend development."
             },
             {
-                "id": "d495c23b-4f65-479a-9b8a-cfbc1c089725",
-                "dates": "July 2020 - March 2022",
-                "type": "Full Time",
-                "position": "Frontend Engineer at X",
-                "bullets": "Worked on the frontend of a React application, Worked on the frontend of a React application"
+                "id": "2",
+                "title": "Global Client Base",
+                "description": "Working with clients from different countries, delivering high-quality solutions that meet international standards."
+            },
+            {
+                "id": "3",
+                "title": "Modern Tech Stack",
+                "description": "Always using the latest technologies and best practices to ensure scalable and maintainable solutions."
+            },
+            {
+                "id": "4",
+                "title": "Fast Delivery",
+                "description": "Committed to delivering projects on time without compromising on quality and functionality."
             }
         ],
-        "education": {
-            "universityName": "University X",
-            "universityDate": "2016-2020",
-            "universityPara": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
-        },
         "languages": [
             "Javascript",
             "HTML5",
@@ -258,13 +259,23 @@
         ],
         "frameworks": [
             "React",
-            "Typescript",
-            "NodeJs"
+            "Flutter",
+            "Node.js",
+            "Typescript"
         ],
         "others": [
             "Figma",
             "AdobeXD",
-            "AWS"
+            "AWS",
+            "Firebase",
+            "Docker",
+            "Git",
+            "MongoDB",
+            "PostgreSQL",
+            "GraphQL",
+            "REST API",
+            "Tailwind CSS",
+            "Material UI"
         ]
     }
 }

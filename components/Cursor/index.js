@@ -1,207 +1,227 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 const Cursor = () => {
-  const [mount, setMount] = useState(false);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
-  const [particles, setParticles] = useState([]);
   const cursorRef = useRef(null);
-  const trailRefs = useRef([]);
+  const cursorDotRef = useRef(null);
+  const cursorRingRef = useRef(null);
+  const targetRef = useRef({ x: 0, y: 0 });
+  const currentRef = useRef({ x: 0, y: 0 });
+  const rafId = useRef(null);
+  const isHoveringRef = useRef(false);
+  const particlesRef = useRef([]);
+  const particleIdRef = useRef(0);
 
   useEffect(() => {
-    setMount(true);
+    const cursor = cursorRef.current;
+    const cursorDot = cursorDotRef.current;
+    const cursorRing = cursorRingRef.current;
+    if (!cursor || !cursorDot || !cursorRing) return;
+
+    const interactiveSelector = 'a, button, .link, [role="button"], input, textarea, select';
+    let lastParticleTime = 0;
+
+    const createParticle = (x, y) => {
+      const particle = document.createElement('div');
+      particle.className = 'cursor-particle';
+      
+      const size = Math.random() * 4 + 2;
+      const vx = (Math.random() - 0.5) * 1.2;
+      const vy = (Math.random() - 0.5) * 1.2;
+      const hue = Math.random() * 60 + 260;
+      
+      particle.style.cssText = `
+        position: fixed;
+        width: ${size}px;
+        height: ${size}px;
+        background: hsl(${hue}, 80%, 70%);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9998;
+        left: ${x}px;
+        top: ${y}px;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 10px hsl(${hue}, 80%, 70%);
+      `;
+      
+      document.body.appendChild(particle);
+      
+      const particleData = {
+        element: particle,
+        x,
+        y,
+        vx,
+        vy,
+        opacity: 1,
+        life: 1
+      };
+      
+      particlesRef.current.push(particleData);
+      
+      if (particlesRef.current.length > 20) {
+        const removed = particlesRef.current.shift();
+        removed.element.remove();
+      }
+    };
 
     const handleMouseMove = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      targetRef.current.x = e.clientX;
+      targetRef.current.y = e.clientY;
       
-      // Create particle trail randomly
-      if (Math.random() > 0.85) {
-        const newParticle = {
-          id: Date.now() + Math.random(),
-          x: e.clientX,
-          y: e.clientY,
-          size: Math.random() * 8 + 3,
-          vx: (Math.random() - 0.5) * 2,
-          vy: (Math.random() - 0.5) * 2,
-          opacity: 1,
-          color: `hsl(${Math.random() * 60 + 260}, 80%, 70%)`
-        };
-        setParticles(prev => [...prev.slice(-15), newParticle]);
+      const now = Date.now();
+      if (now - lastParticleTime > 30) {
+        createParticle(e.clientX, e.clientY);
+        lastParticleTime = now;
       }
     };
 
-    const handleMouseOver = (e) => {
-      if (e.target.closest('a, button, .link, [role="button"]')) {
-        setIsHovering(true);
+    const handlePointerOver = (e) => {
+      if (e.target.closest(interactiveSelector)) {
+        isHoveringRef.current = true;
+        cursor.classList.add('hovering');
       }
     };
 
-    const handleMouseOut = (e) => {
-      if (!e.target.closest('a, button, .link, [role="button"]')) {
-        setIsHovering(false);
+    const handlePointerOut = (e) => {
+      if (!e.relatedTarget || !e.relatedTarget.closest(interactiveSelector)) {
+        isHoveringRef.current = false;
+        cursor.classList.remove('hovering');
       }
     };
 
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseover', handleMouseOver, true);
-    document.addEventListener('mouseout', handleMouseOut, true);
+    const animate = () => {
+      const dx = targetRef.current.x - currentRef.current.x;
+      const dy = targetRef.current.y - currentRef.current.y;
+      
+      currentRef.current.x += dx * 0.2;
+      currentRef.current.y += dy * 0.2;
+
+      cursor.style.transform = `translate3d(${currentRef.current.x}px, ${currentRef.current.y}px, 0)`;
+      
+      // Animate particles
+      particlesRef.current = particlesRef.current.filter(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.life -= 0.02;
+        p.opacity = p.life;
+        
+        if (p.life <= 0) {
+          p.element.remove();
+          return false;
+        }
+        
+        p.element.style.transform = `translate(-50%, -50%) scale(${p.life})`;
+        p.element.style.opacity = p.opacity;
+        p.element.style.left = `${p.x}px`;
+        p.element.style.top = `${p.y}px`;
+        
+        return true;
+      });
+      
+      rafId.current = requestAnimationFrame(animate);
+    };
+
+    document.addEventListener('mousemove', handleMouseMove, { passive: true });
+    document.addEventListener('pointerover', handlePointerOver, { passive: true, capture: true });
+    document.addEventListener('pointerout', handlePointerOut, { passive: true, capture: true });
+
+    rafId.current = requestAnimationFrame(animate);
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseover', handleMouseOver, true);
-      document.removeEventListener('mouseout', handleMouseOut, true);
+      document.removeEventListener('pointerover', handlePointerOver, { capture: true });
+      document.removeEventListener('pointerout', handlePointerOut, { capture: true });
+      if (rafId.current) {
+        cancelAnimationFrame(rafId.current);
+      }
+      particlesRef.current.forEach(p => p.element.remove());
     };
   }, []);
-
-  // Animate particles
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setParticles(prev => 
-        prev
-          .map(p => ({
-            ...p,
-            x: p.x + p.vx,
-            y: p.y + p.vy,
-            opacity: p.opacity - 0.02,
-            size: p.size * 0.95
-          }))
-          .filter(p => p.opacity > 0)
-      );
-    }, 16);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  if (!mount) return null;
 
   return (
     <>
       <style jsx>{`
-        .liquid-cursor {
+        .cursor {
           position: fixed;
           pointer-events: none;
           z-index: 9999;
-          mix-blend-mode: difference;
-          transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          will-change: transform;
+          left: 0;
+          top: 0;
         }
 
-        .cursor-blob {
+        .cursor-dot {
           position: absolute;
-          width: 40px;
-          height: 40px;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+          width: 10px;
+          height: 10px;
+          background: radial-gradient(circle, #ec4899, #a855f7);
           border-radius: 50%;
           transform: translate(-50%, -50%);
-          animation: blob-morph 3s ease-in-out infinite, blob-rotate 8s linear infinite;
-          filter: blur(1px);
-        }
-
-        .cursor-blob.hovering {
-          width: 60px;
-          height: 60px;
-          animation: blob-morph-hover 0.5s ease-in-out infinite, blob-rotate 2s linear infinite, ripple-pulse 1.5s ease-out infinite;
+          box-shadow: 
+            0 0 15px rgba(168, 85, 247, 0.8),
+            0 0 30px rgba(236, 72, 153, 0.4);
+          animation: pulse-dot 2s ease-in-out infinite;
         }
 
         .cursor-ring {
           position: absolute;
-          width: 50px;
-          height: 50px;
-          border: 2px solid rgba(255, 255, 255, 0.3);
+          width: 35px;
+          height: 35px;
+          border: 2px solid rgba(168, 85, 247, 0.5);
           border-radius: 50%;
           transform: translate(-50%, -50%);
-          animation: ring-rotate 4s linear infinite reverse;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          animation: rotate-ring 8s linear infinite;
         }
 
-        .cursor-ring.hovering {
-          width: 70px;
-          height: 70px;
+        .cursor.hovering .cursor-ring {
+          width: 55px;
+          height: 55px;
+          border-color: rgba(236, 72, 153, 0.7);
           border-width: 3px;
-          border-color: rgba(255, 255, 255, 0.6);
+          animation: rotate-ring 2s linear infinite, pulse-ring 1s ease-in-out infinite;
         }
 
-        .particle {
-          position: fixed;
-          pointer-events: none;
-          z-index: 9998;
-          border-radius: 50%;
-          filter: blur(1px);
+        .cursor.hovering .cursor-dot {
+          width: 14px;
+          height: 14px;
+          background: radial-gradient(circle, #f472b6, #c084fc);
+          box-shadow: 
+            0 0 20px rgba(236, 72, 153, 1),
+            0 0 40px rgba(168, 85, 247, 0.6);
         }
 
-        @keyframes blob-morph {
+        @keyframes pulse-dot {
           0%, 100% {
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-          }
-          25% {
-            border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+            transform: translate(-50%, -50%) scale(1);
           }
           50% {
-            border-radius: 50% 40% 60% 40% / 30% 50% 70% 50%;
-          }
-          75% {
-            border-radius: 40% 60% 50% 40% / 60% 40% 60% 50%;
+            transform: translate(-50%, -50%) scale(1.1);
           }
         }
 
-        @keyframes blob-morph-hover {
+        @keyframes rotate-ring {
+          from {
+            transform: translate(-50%, -50%) rotate(0deg);
+          }
+          to {
+            transform: translate(-50%, -50%) rotate(360deg);
+          }
+        }
+
+        @keyframes pulse-ring {
           0%, 100% {
-            border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+            transform: translate(-50%, -50%) rotate(0deg) scale(1);
           }
           50% {
-            border-radius: 60% 40% 40% 60% / 40% 70% 30% 60%;
-          }
-        }
-
-        @keyframes blob-rotate {
-          from { transform: translate(-50%, -50%) rotate(0deg); }
-          to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        @keyframes ring-rotate {
-          from { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
-          50% { transform: translate(-50%, -50%) rotate(180deg) scale(1.1); }
-          to { transform: translate(-50%, -50%) rotate(360deg) scale(1); }
-        }
-
-        @keyframes ripple-pulse {
-          0% {
-            box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7),
-                        0 0 0 10px rgba(118, 75, 162, 0.4),
-                        0 0 0 20px rgba(240, 147, 251, 0.2);
-          }
-          100% {
-            box-shadow: 0 0 0 10px rgba(102, 126, 234, 0),
-                        0 0 0 20px rgba(118, 75, 162, 0),
-                        0 0 0 30px rgba(240, 147, 251, 0);
+            transform: translate(-50%, -50%) rotate(180deg) scale(1.1);
           }
         }
       `}</style>
       
-      <div 
-        className="liquid-cursor"
-        style={{
-          left: `${position.x}px`,
-          top: `${position.y}px`,
-        }}
-      >
-        <div className={`cursor-blob ${isHovering ? 'hovering' : ''}`} />
-        <div className={`cursor-ring ${isHovering ? 'hovering' : ''}`} />
+      <div ref={cursorRef} className="cursor">
+        <div ref={cursorDotRef} className="cursor-dot" />
+        <div ref={cursorRingRef} className="cursor-ring" />
       </div>
-
-      {particles.map((particle) => (
-        <div
-          key={particle.id}
-          className="particle"
-          style={{
-            left: `${particle.x}px`,
-            top: `${particle.y}px`,
-            width: `${particle.size}px`,
-            height: `${particle.size}px`,
-            background: particle.color,
-            opacity: particle.opacity,
-            transform: 'translate(-50%, -50%)'
-          }}
-        />
-      ))}
     </>
   );
 };

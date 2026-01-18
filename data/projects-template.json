@@ -1,0 +1,85 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "title": "PROJE ADI BURAYA",
+      "description": "Projenin detaylı açıklaması buraya. Ne yaptığınızı, hangi problemleri çözdüğünüzü açıklayın.",
+      "imageSrc": "PROJE RESMİ URL BURAYA (ana resim)",
+      "images": [
+        "RESİM URL 1",
+        "RESİM URL 2",
+        "RESİM URL 3",
+        "RESİM URL 4"
+      ],
+      "tags": [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "DİĞER TEKNOLOJİLER"
+      ],
+      "webUrl": "WEB SİTE LİNKİ (varsa)",
+      "iosUrl": "IOS APP LİNKİ (varsa)",
+      "androidUrl": "ANDROID APP LİNKİ (varsa)"
+    },
+    {
+      "id": "2",
+      "title": "",
+      "description": "",
+      "imageSrc": "",
+      "images": [
+        "",
+        "",
+        ""
+      ],
+      "tags": [
+        "",
+        "",
+        ""
+      ],
+      "webUrl": "",
+      "iosUrl": "",
+      "androidUrl": ""
+    },
+    {
+      "id": "3",
+      "title": "",
+      "description": "",
+      "imageSrc": "",
+      "images": [
+        "",
+        ""
+      ],
+      "tags": [
+        "",
+        ""
+      ],
+      "webUrl": ""
+    },
+    {
+      "id": "4",
+      "title": "",
+      "description": "",
+      "imageSrc": "",
+      "images": [
+        ""
+      ],
+      "tags": [
+        ""
+      ],
+      "webUrl": ""
+    },
+    {
+      "id": "5",
+      "title": "",
+      "description": "",
+      "imageSrc": "",
+      "images": [
+        ""
+      ],
+      "tags": [
+        ""
+      ],
+      "webUrl": ""
+    }
+  ]
+}
